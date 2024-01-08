@@ -8,10 +8,10 @@ Also, when ready to submit, add the following to your repo url:
 
 `/compare/main@{1.week.ago}...main`
 
-e.g. `https://github.com/KenPowerClassroom/encapsulation-marysmith` 
+e.g. `https://github.com/KenPowerClassroom/encapsulation-yourgithubname` 
 
 becomes:
 
-`https://github.com/KenPowerClassroom/encapsulation-marysmith/compare/main@{1.week.ago}...main`
+`https://github.com/KenPowerClassroom/encapsulation-yourgithubname/compare/main@{1.week.ago}...main`
 
 Check that this new URL shows all your changes, then add the URL to the  Blackboard lab for `Encapsulation`
