@@ -19,7 +19,7 @@ public:
         balance -= amount;
     }
 };
-class HeatingSystem {
+class Boiler {
 public:
     void turnOn() {
         std::cout << "Heating system turned on." << std::endl;
@@ -39,17 +39,6 @@ public:
 
     double getCurrentTemperature() const {
         return currentTemperature;
-    }
-
-    //New function
-    void regulate(HeatingSystem& hs, int targetTemp) {
-        if (getCurrentTemperature() < targetTemp) {
-            hs.turnOn();
-        }
-        else {
-            hs.turnOff();
-        }
-
     }
 };
 #include <iostream>
@@ -74,34 +63,19 @@ public:
     void returnBook() {
         isAvailable = true;
     }
+};
 
-    // New Function
-    void tryBorrowBook() {
-        if (checkAvailability()) {
-            borrowBook();
+class Library {
+public:
+    void processBookBorrowing(Book& book) {
+        // Violates Tell, Don't Ask
+        if (book.checkAvailability()) {
+            book.borrowBook();
             std::cout << "Book borrowed successfully." << std::endl;
         }
         else {
             std::cout << "Book is not available for borrowing." << std::endl;
         }
-    }
-};
-
-class Library {
-public:
-    //void processBookBorrowing(Book& book) {
-    //    // Violates Tell, Don't Ask
-    //    if (book.checkAvailability()) {
-    //        book.borrowBook();
-    //        std::cout << "Book borrowed successfully." << std::endl;
-    //    }
-    //    else {
-    //        std::cout << "Book is not available for borrowing." << std::endl;
-    //    }
-    //}
-
-    void processBookBorrowing(Book& book) {
-        book.tryBorrowBook();
     }
 };
 
@@ -149,7 +123,7 @@ int main() {
     //////////////////////////////////////////////////////////////////
     // Exercise 1
     //////////////////////////////////////////////////////////////////
- 
+
     BankAccount account(1000.0);
 
     // Violation of Tell, Don't Ask
@@ -165,26 +139,22 @@ int main() {
     //////////////////////////////////////////////////////////////////
 
     Thermostat thermostat(18.5);
-    HeatingSystem heating;
+    Boiler heating;
 
-    //if (thermostat.getCurrentTemperature() < 20.0) {
-    //    heating.turnOn();
-    //}
-    //else {
-    //    heating.turnOff();
-    //}
+    if (thermostat.getCurrentTemperature() < 20.0) {
+        heating.turnOn();
+    }
+    else {
+        heating.turnOff();
+    }
 
-    thermostat.regulate(heating, 20);
-    
     //////////////////////////////////////////////////////////////////
     // Exercise 3
     //////////////////////////////////////////////////////////////////
 
-
     Book myBook("1984");
     Library library;
 
-    // Don't change client if possible - keep library
     library.processBookBorrowing(myBook);  // First borrow should succeed
     library.processBookBorrowing(myBook);  // Second attempt should show not available
 
