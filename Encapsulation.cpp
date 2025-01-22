@@ -19,7 +19,7 @@ public:
         balance -= amount;
     }
 };
-class HeatingSystem {
+class Boiler {
 public:
     void turnOn() {
         std::cout << "Heating system turned on." << std::endl;
@@ -42,7 +42,7 @@ public:
     }
 
     //New function
-    void regulate(HeatingSystem& hs, int targetTemp) {
+    void regulate(Boiler& hs, int targetTemp) {
         if (getCurrentTemperature() < targetTemp) {
             hs.turnOn();
         }
@@ -165,7 +165,7 @@ int main() {
     //////////////////////////////////////////////////////////////////
 
     Thermostat thermostat(18.5);
-    HeatingSystem heating;
+    Boiler heating;
 
     //if (thermostat.getCurrentTemperature() < 20.0) {
     //    heating.turnOn();
