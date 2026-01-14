@@ -14,4 +14,8 @@ becomes:
 
 `https://github.com/KenPowerClassroom/encapsulation-yourgithubname/compare/main@{1.week.ago}...main`
 
-Check that this new URL shows all your changes, then add the URL to the  Blackboard lab for `Encapsulation`
+**Check that this new URL shows all your changes,** then add the URL to the  Blackboard lab for `Encapsulation`
+
+
+https://excalidraw.com/#json=yc1bjvNeIuHB7ZbdeHUTa,wBMowdArqPphAvEjrXbNtQ
+
